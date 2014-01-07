@@ -33,7 +33,12 @@
             '01/05': "Vappu",
             '25/12': "Joulupäivä",
             '26/12': "Tapaninpäivä"
-        }
+        },
+
+    };
+
+    var _staticHolidays = function(moment){
+        return _holidays['M'][moment.format('DD/MM')];
     };
 
     //variable dates
@@ -89,27 +94,29 @@
     };
 
 
-    var _easterRelatedDays = function(year) {
-        var easterSunday = _easterSunday(year),
+    var _easterRelatedDays = function(moment) {
+        var easterSunday = _easterSunday(moment.year()),
             goodFriday = easterSunday.clone().subtract("days", 2),
             easterMonday = easterSunday.clone().add("days", 1),
             ascension = easterSunday.clone().add("days", 39);
 
-        var easter = [];
-        easter[goodFriday.format("DD/MM")] = 'Pitkäperjantai';
-        easter[easterSunday.format("DD/MM")] = 'Pääsiäispäivä';
-        easter[easterMonday.format("DD/MM")] = 'Toinen pääsiäispäivä';
-        easter[ascension.format("DD/MM")] = 'Helatorstai';
-
-        return easter;
+        if(moment.isSame(goodFriday)){
+            return 'Pitkäperjantai';
+        }else if(moment.isSame(easterSunday)){
+            return 'Pääsiäispäivä';
+        }else if(moment.isSame(easterMonday)){
+            return 'Toinen pääsiäispäivä';
+        }else if(moment.isSame(ascension)){
+            return 'Helatorstai';
+        }
     };
 
     moment.fn.holiday = function() {
         var currentDate = this.format('DD/MM');
-        return (_holidays['M'][currentDate]) || 
-                _easterRelatedDays(this.year())[currentDate] ||
-                _midSummer(this) ||
-                _allSaintsDay(this);
+        return _staticHolidays(this) || 
+               _easterRelatedDays(this) ||
+               _midSummer(this) ||
+               _allSaintsDay(this);
     };
  
     if ((typeof module !== "undefined" && module !== null ? module.exports : void 0) != null) {
