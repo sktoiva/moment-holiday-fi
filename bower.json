@@ -1,6 +1,6 @@
 {
   "name": "moment-holiday-fi",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "authors": [
     "Sampo Toiva <sampo.toiva@gmail.com>"
   ],
@@ -15,7 +15,7 @@
   "ignore": [
     "**/.*",
     "Gruntfile.js",
-    "package.js",
+    "package.json",
     "node_modules",
     "bower_components",
     "test",
