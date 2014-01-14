@@ -1,12 +1,13 @@
-moment-holiday-fi
-=================
+#moment-holiday-fi
 
 A momentjs plugin for displaying Finnish holidays.
 
 Needs momentjs: 
 
-Usage:
-    moment("2010-01-01").holiday(); //prints "Uudenvuodenpäivä"
-    moment("2010-02-01").holiday(); //prints undefined
+##Usage:
 
+```JavaScript
+moment("2010-01-01").holiday(); //prints "Uudenvuodenpäivä"
+moment("2010-02-01").holiday(); //prints undefined
+```
 
