@@ -1,4 +1,4 @@
-var moment = require('../src/holiday-fi');
+var moment = require('../src/moment-holiday-fi');
 var should = require('chai').should();
 var _ = require("underscore");
 
