@@ -1,6 +1,6 @@
 {
-  "name": "holiday-fi",
-  "version": "0.1.0",
+  "name": "moment-holiday-fi",
+  "version": "0.2.0",
   "authors": [
     "Sampo Toiva <sampo.toiva@gmail.com>"
   ],
@@ -8,15 +8,18 @@
   "main": "src/holiday-fi.js",
   "keywords": [
     "momentjs",
-    "holiday"
+    "holiday",
+    "finnish"
   ],
   "license": "MIT",
-  "private": true,
   "ignore": [
     "**/.*",
     "node_modules",
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "momentjs": "~2.5.0"
+  }
 }
