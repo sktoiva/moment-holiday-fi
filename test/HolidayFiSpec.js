@@ -38,6 +38,11 @@ describe("Holiday", function(){
     date.holiday().should.equal("Juhannuspäivä");
   });
 
+  it("should return Juhannuspäivä for 2015-06-22", function(){
+    var date = moment("2015-06-20");
+    date.holiday().should.equal("Juhannuspäivä");
+  });
+
   it("should return Juhannuspäivä for 2000-06-24", function(){
     var date = moment("2000-06-24");
     date.holiday().should.equal("Juhannuspäivä");
@@ -66,6 +71,11 @@ describe("Holiday", function(){
   it("should return Helatorstai for 2014-04-19", function(){
     var date = moment("2014-04-19").add("days", 40);
     date.holiday().should.equal("Helatorstai");
+  });
+
+  it("should return Pyhäinpäivä for 2015-10-31", function(){
+    var date = moment("2015-10-31");
+    date.holiday().should.equal("Pyhäinpäivä");
   });
 });
 

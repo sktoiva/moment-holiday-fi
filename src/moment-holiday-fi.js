@@ -28,9 +28,10 @@
     // moment = typeof require !== "undefined" && require !== null ? require("moment") : this.moment;
 
     //Static variables
-    var saturday = 6, 
-        november = 9, 
-        december = 10,
+    var saturday = 6,
+        october = 9,
+        november = 10,
+        december = 11,
         june = 5;
 
     //Holiday definitions, static dates
@@ -52,8 +53,8 @@
     //variable dates
     //Pyhäinpäivä 31.10-6.11 lauantaina
      var allSaintsDay = function(moment){
-        var start = moment.clone().month(saturday).date(31);
-        var end = moment.clone().month(november).date(30);
+        var start = moment.clone().month(october).date(31);
+        var end = moment.clone().month(november).date(6);
      
         if(isSaturdayHoliday(moment, start, end)){
             return "Pyhäinpäivä";
@@ -71,7 +72,7 @@
     };
 
     var isSaturdayHoliday = function(moment, start, end){
-        return isSaturday(moment) && moment.isAfter(start) && moment.isBefore(end);
+        return isSaturday(moment) && (moment.isAfter(start) || moment.isSame(start)) && (moment.isBefore(end) || moment.isSame(end));
     };
 
     var isSaturday = function(moment){
